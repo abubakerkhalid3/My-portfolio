@@ -19,7 +19,7 @@
   <link rel="preload" href="https://framerusercontent.com/assets/JUv6rms2ye2kYL3UI3O9YyExQcQ.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/arabic-regular.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="./assets/arabic-bold.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="./styles.css?v=39">
+  <link rel="stylesheet" href="./styles.css?v=44">
   <script src="./app.js?v=13" defer></script>
 </head>
 
@@ -98,23 +98,33 @@
       <a class="button small header-cta" href="#contact">ابدأ مشروعك <svg class="icon" aria-hidden="true">
           <use href="#i-arrow" />
         </svg></a>
-      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="site-nav"><svg
+      <button class="menu-toggle hidden" aria-label="فتح القائمة" aria-expanded="false" aria-controls="site-nav" hidden style="display:none;"><svg
           class="icon" aria-hidden="true">
           <use href="#i-menu" />
         </svg></button>
     </div>
   </header>
-  <main id="main">
+  <main id="main" class="pb-28 sm:pb-32 md:pb-0">
     <div class="upper-canvas">
-      <section class="hero hero--text container" aria-labelledby="hero-title">
+      <section id="hero" class="hero hero--text container" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="hero-eyebrow">أهلاً، أنا أبوبكر خالد 👋</p>
+          <div class="hero-greeting-container">
+            <div class="hero-greeting-wrapper">
+              <p class="hero-eyebrow">أهلاً، أنا أبوبكر خالد</p>
+              <!-- Mobile-only mini tilted sticker (hidden on md+) -->
+              <div class="badge-mobile" role="status" aria-label="متاح لمشاريع جديدة">
+                <span class="sticker-dot" aria-hidden="true"></span>
+                <span class="sticker-text">متاح لمشاريع جديدة</span>
+              </div>
+            </div>
+          </div>
           <h1 class="hero-title" id="hero-title">
             <span class="hero-title-line">أبني لك موقعًا يوضح خدمتك،</span>
             <span class="hero-accessible-phrase">ونظامًا يرتب شغلك.</span>
             <span class="highlight" aria-hidden="true">
-              <span class="hero-sticker-badge">
-                <span class="sticker-dot" aria-hidden="true"></span>
+              <!-- Desktop-only badge anchored to blue box (hidden below md) -->
+              <span class="badge-desktop" aria-hidden="true">
+                <span class="sticker-dot"></span>
                 <span class="sticker-text">متاح لمشاريع جديدة</span>
               </span>
               <span class="hero-phrase hero-phrase--fallback">ونظامًا يرتب شغلك.</span>
@@ -521,6 +531,41 @@
       </div>
     </div>
   </footer>
+  <!-- Floating Mobile Bottom Navigation Dock (Homebar) with Expanding Pill -->
+  <nav
+    aria-label="Mobile Bottom Navigation"
+    class="mobile-dock fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-50 flex md:hidden items-center gap-1.5 p-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_0px_#000] rounded-full select-none"
+    id="mobile-dock"
+  >
+    <a href="#hero" class="mobile-dock-item is-active" data-section="hero" aria-label="الرئيسية" aria-current="page">
+      <svg class="mobile-dock-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 10.5 12 3l9 7.5V20a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 20v-9.5z"/>
+        <path d="M9 21v-7h6v7"/>
+      </svg>
+      <span class="mobile-dock-label">الرئيسية</span>
+    </a>
+    <a href="#work" class="mobile-dock-item" data-section="work" aria-label="شغلي">
+      <svg class="mobile-dock-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/>
+      </svg>
+      <span class="mobile-dock-label">شغلي</span>
+    </a>
+    <a href="#faq" class="mobile-dock-item" data-section="about" aria-label="عنّي">
+      <svg class="mobile-dock-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span class="mobile-dock-label">عنّي</span>
+    </a>
+    <a href="#contact" class="mobile-dock-item" data-section="contact" aria-label="تواصل">
+      <svg class="mobile-dock-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-1 1v-8.5A8.5 8.5 0 0 1 11.5 4h1a8.5 8.5 0 0 1 8.5 7.5Z"/>
+        <path d="M8 10h8"/>
+        <path d="M8 14h5"/>
+      </svg>
+      <span class="mobile-dock-label">تواصل</span>
+    </a>
+  </nav>
 </body>
 
 </html>
